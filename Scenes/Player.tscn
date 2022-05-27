@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Art/GreenFrog.tres" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 16 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 32.0
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+interact_zone_path = NodePath("InteractionZone")
+move_speed = 200.0
+move_acc = 30.0
+idle_deacc = 0.3
+jump_height = 48.0
+jump_duration = 0.35
+fall_duration = 0.3
+max_fall = 500.0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="InteractionZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+shape = SubResource( 3 )
