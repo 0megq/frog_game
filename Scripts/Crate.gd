@@ -1,5 +1,6 @@
 extends StaticBody2D
 
-func interaction() -> void:
+
+func interaction(player: Player) -> void:
 	print("crate interaction")
 

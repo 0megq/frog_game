@@ -9,6 +9,7 @@ var interact_input: int = 0
 #Interact
 export var interact_zone_path: NodePath
 onready var interact_zone: Area2D = get_node(interact_zone_path)
+var key_count: int = 0
 
 #General
 var velocity: Vector2 = Vector2.ZERO
@@ -45,7 +46,7 @@ func interact() -> void:
 	if interact_input:
 		var interactables = interact_zone.get_overlapping_bodies()
 		if interactables.size() == 1:
-			interactables[0].interaction()
+			interactables[0].interaction(self)
 		elif interactables.size() > 1:
 			print("2 interactables")
 
