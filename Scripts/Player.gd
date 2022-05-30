@@ -49,6 +49,11 @@ func interact() -> void:
 			interactables[0].interaction(self)
 		elif interactables.size() > 1:
 			print("2 interactables")
+		interactables = interact_zone.get_overlapping_areas()
+		if interactables.size() == 1:
+			interactables[0].interaction(self)
+		elif interactables.size() > 1:
+			print("2 interactables")
 
 
 func move(delta: float) -> void:
