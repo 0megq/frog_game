@@ -132,3 +132,11 @@ func input() -> void:
 	#Interact
 	if Input.is_action_just_released("interact"):
 		interact_input = 1
+
+func die() -> void:
+	print("hi i died")
+
+
+func _on_HurtBox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		die()
