@@ -45,14 +45,4 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 4 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = -59.0
-margin_top = -75.0
-margin_right = 15.0
-margin_bottom = -40.0
-text = "EXPLOSION"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
