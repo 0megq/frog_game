@@ -16,5 +16,5 @@ func interaction(player: Player) -> void:
 func unlock() -> void:
 	var crate = crate_scene.instance()
 	crate.position = self.position
-	get_tree().root.add_child(crate)
+	get_tree().current_scene.add_child(crate)
 	self.queue_free()
