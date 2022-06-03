@@ -134,7 +134,8 @@ func input() -> void:
 		interact_input = 1
 
 func die() -> void:
-	print("hi i died")
+	Global.crate_count = 0
+	get_tree().reload_current_scene()
 
 
 func _on_HurtBox_area_entered(area: Area2D) -> void:

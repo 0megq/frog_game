@@ -44,11 +44,3 @@ position = Vector2( 1104, 624 )
 
 [node name="PositionC" type="Position2D" parent="Patrol Points"]
 position = Vector2( 1248, 624 )
-
-[node name="PositionD" type="Position2D" parent="Patrol Points"]
-
-[node name="PositionE" type="Position2D" parent="Patrol Points"]
-
-[node name="PositionF" type="Position2D" parent="Patrol Points"]
-
-[node name="PositionG" type="Position2D" parent="Patrol Points"]
