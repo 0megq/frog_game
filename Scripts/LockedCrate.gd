@@ -12,7 +12,6 @@ func interaction(player: Player) -> void:
 		print("no keys :(")
 		
 
-
 func unlock() -> void:
 	var crate = crate_scene.instance()
 	crate.position = self.position
