@@ -8,5 +8,5 @@ func interaction(player: Player) -> void:
 		if Main.crate_count == 0:
 			Global.change_level()
 		else:
-			print(str(Main.crate_count) + " frogs left to save. Don't leave them to rot.")
+			Hud.change_text(str(Main.crate_count) + " frogs left to save. Don't leave them to rot.")
 		

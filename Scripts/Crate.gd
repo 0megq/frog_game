@@ -10,5 +10,8 @@ func interaction(player: Player) -> void:
 	frog.position = self.position
 	get_tree().current_scene.add_child(frog)
 	Main.crate_count -= 1
+	
+	Hud.change_text("\"Thank you so much for releasing me\"")
+	
 	self.queue_free()
 

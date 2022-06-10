@@ -8,5 +8,4 @@ var crate_count: int = 0
 
 func change_level() -> void:
 	current_level += 1
-	print(current_level)
 	get_tree().change_scene_to(level_array[current_level-1])

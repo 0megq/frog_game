@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Scenes/Global.tscn"
+Hud="*res://Scenes/HUD.tscn"
 
 [display]
 
