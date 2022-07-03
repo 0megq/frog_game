@@ -9,7 +9,7 @@ var velocity: Vector2 = Vector2.ZERO
 export var move_speed: float
 export var stop_length: float
 
-var direction: int = 0
+var direction: Vector2 = Vector2.ZERO
 var can_move: bool = true
 
 
@@ -20,11 +20,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if self.position.distance_to(points[current_point]) < move_speed/100:
+	if self.position.distance_to(points[current_point]) < move_speed/120:
+		self.position = points[current_point]
 		current_point += 1
 		if current_point > points.size() - 1:
 			current_point = 0
-		direction = (points[current_point].x - position.x)/abs(points[current_point].x - position.x)
+		
+		var angle: float = get_angle_to(points[current_point])
+		
+		direction = Vector2(cos(angle), sin(angle))
+		
 		can_move = false
 		yield(get_tree().create_timer(stop_length), "timeout")
 		can_move = true
@@ -33,7 +38,8 @@ func _physics_process(delta: float) -> void:
 		
 		
 func move(delta: float) -> void:
-	velocity.x = move_speed * direction
+	velocity.x = move_speed * direction.x
+	velocity.y = move_speed * direction.y
 	
 	move_and_slide(velocity, Vector2.UP)
 

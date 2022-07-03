@@ -44,16 +44,24 @@ func _physics_process(delta: float) -> void:
 
 func interact() -> void:
 	if interact_input:
-		var interactables = interact_zone.get_overlapping_bodies()
+		var interactables = interact_zone.get_overlapping_bodies() #bodies
+		if interactables.size() > 0:
+			get_closest_to_point(interactables, position).interaction(self)
+		interactables = interact_zone.get_overlapping_areas() #areas
 		if interactables.size() == 1:
 			interactables[0].interaction(self)
 		elif interactables.size() > 1:
-			print("2 interactables")
-		interactables = interact_zone.get_overlapping_areas()
-		if interactables.size() == 1:
-			interactables[0].interaction(self)
-		elif interactables.size() > 1:
-			print("2 interactables")
+			print("2 area interactables")
+
+func get_closest_to_point(point_array: Array, point: Vector2) -> Node2D:
+	var closest_node: Node2D = null
+	var closest_node_distance: float = 0
+	for i in point_array:
+		var current_node_distance: float = point.distance_to(i.global_position)
+		if closest_node == null or current_node_distance < closest_node_distance:
+			closest_node = i
+			closest_node_distance = current_node_distance
+	return closest_node
 
 
 func move(delta: float) -> void:
@@ -134,7 +142,6 @@ func input() -> void:
 		interact_input = 1
 
 func die() -> void:
-	Global.crate_count = 0
 	get_tree().reload_current_scene()
 
 

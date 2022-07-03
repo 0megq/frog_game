@@ -18,8 +18,9 @@ func _replace_tiles_with_scenes(scene_dictionary: Dictionary = TILE_SCENES):
 			var object_scene = scene_dictionary[tile_id]
 			_replace_tile_with_object(tile_pos, object_scene)
 		
-		if tile_id == 0 or tile_id == 4:
+		if tile_id == 0 or tile_id == 2:
 			Main.crate_count += 1
+			
 
 func _replace_tile_with_object(tile_pos: Vector2, object_scene: PackedScene, parent: Node = get_tree().current_scene):
 	# Clear the cell in TileMap

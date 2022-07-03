@@ -7,7 +7,7 @@
 extents = Vector2( 36, 47.75 )
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 96.0
+radius = 135.015
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 36, 48 )
@@ -18,8 +18,8 @@ interact_zone_path = NodePath("InteractionBox")
 move_speed = 600.0
 move_acc = 90.0
 idle_deacc = 0.3
-jump_height = 144.0
-jump_duration = 0.35
+jump_height = 195.0
+jump_duration = 0.3
 fall_duration = 0.3
 max_fall = 1500.0
 
@@ -44,5 +44,12 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource( 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 3840
+limit_bottom = -2160
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]

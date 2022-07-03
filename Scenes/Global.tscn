@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Global.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Levels/Level_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Levels/Level_2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/Level_3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Levels/Level_4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Levels/Level_5.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Levels/Level_6.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Win.tscn" type="PackedScene" id=8]
 
 [node name="Global" type="Node"]
 script = ExtResource( 1 )
-level_array = [ ExtResource( 2 ), ExtResource( 3 ) ]
+level_array = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
+win_screen = ExtResource( 8 )

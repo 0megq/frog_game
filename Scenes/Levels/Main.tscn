@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Crate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Key.tscn" type="PackedScene" id=2]
@@ -8,21 +8,36 @@
 [ext_resource path="res://Scripts/TileMap.gd" type="Script" id=6]
 [ext_resource path="res://Art/TileSet.tres" type="TileSet" id=7]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=8]
+[ext_resource path="res://Art/Background.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 1500 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 8 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -192.0
+margin_right = 320.0
+margin_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 12, 12 )
+texture = ExtResource( 9 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Player" parent="." instance=ExtResource( 5 )]
 z_index = 1
-jump_duration = 0.3
-fall_duration = 0.25
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 12, 12 )
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 8, 8 )
 format = 1
-tile_data = PoolIntArray( 2162705, 3, 65540, 2359325, 3, 0, 2359326, 3, 1, 2359327, 3, 393220, 2359328, 3, 327684, 2359329, 3, 327681, 2359330, 3, 327684, 2359331, 3, 196613, 2424861, 3, 65536, 2424862, 3, 65537, 2424863, 3, 65539, 2424865, 3, 458753, 2424867, 3, 262149, 2490397, 3, 131072, 2490398, 3, 131073, 2490399, 3, 458756, 2490400, 3, 393219, 2490403, 3, 262149, 2555937, 3, 327680, 2555938, 3, 196612, 2555939, 3, 327685, 2818054, 3, 196611, 2818055, 3, 327684, 2818056, 3, 196612, 2818057, 3, 327684, 2818058, 3, 196612, 2818059, 3, 327684, 2818060, 3, 327684, 2818061, 3, 327684, 2818062, 3, 196612, 2818063, 3, 196612, 2818064, 3, 196612, 2818065, 3, 393219, 2883584, 3, 327680, 2883585, 3, 327684, 2883586, 3, 196612, 2883587, 3, 196612, 2883588, 3, 196612, 2883589, 3, 327684, 2883590, 3, 327685 )
+tile_data = PoolIntArray( 655360, 3, 0, 655361, 3, 1, 655362, 3, 131076, 655363, 3, 1, 655364, 3, 131076, 655365, 3, 131076, 655366, 3, 1, 655367, 3, 1, 655368, 3, 1, 655369, 3, 131076, 655370, 3, 131076, 655371, 3, 1, 655372, 3, 131076, 655373, 3, 1, 655374, 3, 1, 655375, 3, 131076, 655376, 3, 1, 655377, 3, 131076, 655378, 3, 1, 655379, 3, 1, 655380, 3, 1, 655381, 3, 131076, 655382, 3, 131076, 655383, 3, 131076, 655384, 3, 131076, 655385, 3, 131076, 655386, 3, 131076, 655387, 3, 1, 655388, 3, 131076, 655389, 3, 131076, 655390, 3, 131076, 655391, 3, 131076, 655392, 3, 131076, 655393, 3, 131076, 655394, 3, 131076, 655395, 3, 1, 655396, 3, 131076, 655397, 3, 131076, 655398, 3, 131076, 655399, 3, 2, 720896, 3, 131072, 720897, 3, 4, 720898, 3, 4, 720899, 3, 131073, 720900, 3, 131073, 720901, 3, 131073, 720902, 3, 4, 720903, 3, 4, 720904, 3, 4, 720905, 3, 4, 720906, 3, 4, 720907, 3, 131073, 720908, 3, 131073, 720909, 3, 4, 720910, 3, 131073, 720911, 3, 4, 720912, 3, 4, 720913, 3, 4, 720914, 3, 4, 720915, 3, 131073, 720916, 3, 4, 720917, 3, 131073, 720918, 3, 4, 720919, 3, 131073, 720920, 3, 131073, 720921, 3, 4, 720922, 3, 131073, 720923, 3, 4, 720924, 3, 4, 720925, 3, 131073, 720926, 3, 4, 720927, 3, 4, 720928, 3, 131073, 720929, 3, 131073, 720930, 3, 4, 720931, 3, 4, 720932, 3, 131073, 720933, 3, 131073, 720934, 3, 131073, 720935, 3, 131074 )
 script = ExtResource( 6 )
 TILE_SCENES = {
 0: ExtResource( 1 ),
@@ -30,3 +45,15 @@ TILE_SCENES = {
 2: ExtResource( 3 ),
 4: ExtResource( 2 )
 }
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2( -5, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+shape = SubResource( 1 )
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2( 3845, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+shape = SubResource( 1 )
